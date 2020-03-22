@@ -1,5 +1,7 @@
-import audio_processing
+import audio_processing as ap
 import os
+import pandas as pd
+import numpy as np
 
 def get_audio_files():
     path = 'respiratory-sound-database/audio_and_txt_files/'
@@ -14,8 +16,12 @@ def get_audio_files():
 
     return wav_files, txt_files
 
+def main():
+    wav_files, txt_files = get_audio_files()
+    spectros = ap.get_spectrograms(wav_files)
+    df = pd.read_csv('demographic-info.csv')
+    print(df.head())
+
 
 if __name__ == "__main__":
-    wav_files, txt_files = get_audio_files()
-
-    
+    main()

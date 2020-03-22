@@ -1,2 +1,2 @@
-def get_spectrogram(audio):
-    pass
+def get_spectrograms(audio):
+    return 0
