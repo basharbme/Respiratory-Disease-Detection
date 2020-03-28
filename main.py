@@ -26,7 +26,7 @@ def main():
     wav_files, txt_files = get_audio_files()
     wav_files = sorted(wav_files)
 
-    # extract information from the filename
+    # extract information from the wav files' filename
     # 0:[patient #], 1:[recording index], 2:[chest location], 3:[acquisition mode], 4:[recording equipment]
     stripped_file_info = [re.sub('\.wav$', '', file) for file in wav_files]
     file_info = [file.split('_') for file in stripped_file_info]
@@ -60,7 +60,7 @@ def main():
     # get list of unique diagnoses labels
     diagnoses = data.Diagnosis.unique()
 
-
+    print(sorted(txt_files))
     # spectros = ap.get_spectrograms(wav_files)
 
 
